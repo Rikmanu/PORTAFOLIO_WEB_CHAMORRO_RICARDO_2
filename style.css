@@ -1,0 +1,733 @@
+/* RESET Y VARIABLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-light: #ffffff; /* Letra blanca (para cajas, título y texto dinámico) */
+    --color-background-secondary: #f4f4f9; 
+    --color-primary-blue: #007bff; /* Azul profesional (para bordes/acentos) */
+    --color-dark-text: #212529; 
+    --color-muted-text: #6c757d; 
+    --color-accent-green: #28a745; /* Botón CTA (Ver Proyectos) */
+    --font-sans: 'Roboto', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --color-box-bg: #002244; /* Fondo azul oscuro SÓLIDO para las CAJAS */
+}
+
+body {
+    background-color: var(--color-light);
+    color: var(--color-dark-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* TIPOGRAFÍA Y TÍTULOS */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-primary-blue);
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+.highlight-text {
+    color: var(--color-accent-green);
+}
+
+/* HEADER Y NAVEGACIÓN */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background-color: var(--color-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-dark-text);
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap; /* Mantenemos en una línea en escritorio */
+    align-items: center;
+}
+
+.navbar a {
+    color: var(--color-dark-text);
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: 500;
+    transition: color 0.3s;
+    white-space: nowrap; 
+}
+
+.navbar a:hover {
+    color: var(--color-primary-blue);
+}
+
+.cta-button {
+    background-color: var(--color-primary-blue);
+    color: var(--color-light) !important;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* SECCIÓN HERO (INICIO) */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 80px;
+    
+    background-image: url('imagenes/fondo1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    position: relative;
+    z-index: 1; 
+    color: var(--color-light); 
+}
+
+/* Estilos de Contenido (Aseguramos Z-Index) */
+.hero-content {
+    flex: 2;
+    max-width: 60%;
+    z-index: 2; 
+}
+
+.hero-image-container {
+    flex: 1;
+    text-align: right;
+    z-index: 2; 
+}
+
+.profile-image-hero {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    /* Borde de la imagen */
+    box-shadow: 0 0 0 8px var(--color-light), 0 0 0 10px var(--color-primary-blue);
+}
+
+/* ⬅️ CAJA PARA EL SUBTÍTULO SUPERIOR (Con efecto GLOW) */
+.role-pretitle {
+    color: var(--color-light); 
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 20px; 
+    
+    background-color: var(--color-box-bg);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block; 
+    
+    border-left: 4px solid var(--color-primary-blue);
+    /* 💥 INNNOVACIÓN: Sombra azul brillante */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.2); 
+}
+
+/* ⬅️ TITULAR PRINCIPAL (Con efecto GLOW y Contraste de Peso) */
+.hero-section h1 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    min-height: 1.2em;
+    color: var(--color-light); 
+    
+    /* 💥 INNNOVACIÓN: Contraste de peso (Soy más delgado) */
+    font-weight: 300; 
+    /* 💥 INNNOVACIÓN: Sombra de texto (Glow) */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); 
+}
+
+/* ⬅️ TEXTO DINÁMICO (Restablecido a color blanco pero con más peso) */
+#typing-text {
+    background-color: transparent; 
+    color: var(--color-light) !important; 
+    padding: 0; 
+    border-radius: 0; 
+    display: inline-block; 
+    line-height: 1.2; 
+    
+    /* 💥 INNNOVACIÓN: Texto dinámico en negrita para el contraste */
+    font-weight: 700; 
+}
+
+/* ESTILOS CLAVE PARA EL EFECTO DE TIPADO */
+.cursor {
+    display: inline-block;
+    color: var(--color-light); 
+    font-weight: 300;
+    margin-left: 5px;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* FIN ESTILOS TIPADO */
+
+/* ⬅️ CAJA PARA EL RESUMEN (Con efecto GLOW) */
+.hero-summary {
+    color: var(--color-light); 
+    font-size: 1.1em;
+    max-width: 90%;
+    margin-bottom: 30px;
+    
+    background-color: var(--color-box-bg); 
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    
+    /* 💥 INNNOVACIÓN: Sombra azul brillante */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.2); 
+}
+
+.hero-actions a {
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 20px;
+    display: inline-block;
+    /* 💥 INNNOVACIÓN: Añadir transición para hover dinámico */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-actions .main-cta {
+    background-color: var(--color-accent-green);
+    color: var(--color-light);
+    padding: 12px 30px;
+    border-radius: 5px;
+}
+
+/* 💥 INNNOVACIÓN: Efecto hover para botón principal */
+.hero-actions .main-cta:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px) scale(1.02); /* Se levanta y se agranda un poco */
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.6); /* Sombra de glow verde */
+}
+
+/* ⬅️ CAJA PARA LOS ENLACES SECUNDARIOS (Con efecto GLOW y hover) */
+.hero-actions .secondary-link {
+    color: var(--color-light);
+    
+    background-color: var(--color-box-bg);
+    padding: 8px 15px;
+    border-radius: 5px;
+    
+    border: 1px solid var(--color-primary-blue);
+    /* 💥 INNNOVACIÓN: Sombra azul brillante */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.2);
+}
+
+/* 💥 INNNOVACIÓN: Efecto hover para enlaces secundarios */
+.hero-actions .secondary-link:hover {
+    background-color: var(--color-primary-blue); 
+    border-color: var(--color-light);
+    color: var(--color-light); 
+    transform: translateY(-2px) scale(1.02); /* Se levanta y se agranda un poco */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(0, 123, 255, 0.6); /* Sombra de glow más intensa */
+}
+
+/* SECCIÓN ACERCA DE MÍ */
+.about-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark-text);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.about-text-content p {
+    margin-bottom: 15px;
+    color: var(--color-muted-text);
+}
+
+.skills-card {
+    background-color: var(--color-primary-blue);
+    color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills-card h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.skills-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* 💥 CAMBIO: Estilo para las viñetas de Habilidades Clave */
+.skills-card ul li {
+    margin-bottom: 15px; 
+    font-weight: 300;
+    position: relative; 
+    padding-left: 15px; 
+}
+
+.skills-card ul li::before {
+    content: "•";
+    color: var(--color-accent-green); 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+.download-cv-btn {
+    background-color: var(--color-dark-text);
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+/* SECCIÓN PROYECTOS */
+.projects-section {
+    padding: 80px 0;
+    background-color: var(--color-background-secondary);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-accent-green);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.project-type {
+    display: block;
+    color: var(--color-primary-blue);
+    font-size: 0.85em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    color: var(--color-dark-text);
+    margin-bottom: 10px;
+}
+
+.project-desc, .event-info {
+    color: var(--color-muted-text);
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.project-tags span {
+    display: inline-block;
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--color-accent-green);
+    font-size: 0.75em;
+    padding: 4px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+.project-link {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* SECCIÓN EDUCACIÓN */
+.education-section {
+    padding: 80px 0;
+}
+
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cert-group {
+    background-color: var(--color-light);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.cert-group h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary-blue);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.cert-group ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.cert-group ul li {
+    margin-bottom: 10px;
+    color: var(--color-dark-text);
+    font-size: 0.95em;
+    position: relative;
+    padding-left: 15px;
+}
+
+.cert-group ul li::before {
+    content: "•";
+    color: var(--color-accent-green);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* SECCIÓN CUADERNO */
+.notebook-section {
+    padding: 80px 0;
+    background-color: var(--color-background-secondary);
+}
+
+/* ESTILOS PARA LA GALERÍA DEL CUADERNO (para que sigan en línea) */
+.notebook-gallery {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+    margin-top: 30px;
+}
+
+.week-link-button {
+    background-color: var(--color-light);
+    color: var(--color-dark-text);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex-basis: calc(14.28% - 20px); 
+    text-align: center;
+    border-top: 5px solid var(--color-primary-blue); 
+    min-width: 120px;
+}
+
+.week-link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-top-color: var(--color-accent-green);
+}
+
+.week-link-button .week-number {
+    display: block;
+    font-size: 2em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-primary-blue);
+    margin-bottom: 5px;
+}
+
+.week-link-button h4 {
+    font-size: 1em;
+    font-family: var(--font-heading);
+    margin-bottom: 5px;
+}
+
+.week-link-button p {
+    font-size: 0.8em;
+    color: var(--color-muted-text);
+    margin: 0;
+}
+
+/* --- ESTILOS ADICIONALES PARA REFLEXIÓN FINAL Y BIBLIOGRAFÍA --- */
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* Estilos para la sección de Reflexión Final */
+.reflection-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.reflection-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.reflection-list li {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    position: relative;
+    border-left: 3px solid var(--color-primary-blue);
+}
+
+.reflection-list li strong {
+    display: block;
+    margin-bottom: 5px;
+    font-family: var(--font-heading);
+    font-size: 1.1em;
+}
+
+.reflection-list li p {
+    color: var(--color-muted-text);
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+
+/* Estilos para la sección de Bibliografía */
+.bibliography-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bibliography-list li {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.bibliography-list li:last-child {
+    border-bottom: none;
+}
+
+.bibliography-list li a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.bibliography-list li a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Estilos para el Footer Principal */
+.main-footer {
+    background-color: var(--color-box-bg); /* Mismo azul oscuro del Hero */
+    color: var(--color-light);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.main-footer .container p {
+    margin: 5px 0;
+}
+
+.main-footer .container p:last-child {
+    color: var(--color-primary-blue); /* Color de acento para el texto técnico */
+    font-weight: 500;
+}
+
+
+/* --- MEDIA QUERIES para responsividad --- */
+
+/* TABLETS GRANDES / ESCRITORIO COMPACTO (<= 1200px) */
+@media (max-width: 1200px) {
+    .header {
+        padding: 15px 50px;
+    }
+    .hero-section {
+        padding: 80px 50px;
+    }
+    .notebook-gallery {
+        gap: 15px;
+    }
+    .week-link-button {
+        flex-basis: calc(25% - 15px); /* 4 por fila */
+    }
+}
+
+
+/* TABLETS Y MÓVILES GRANDES (<= 992px) */
+@media (max-width: 992px) {
+    .header, .hero-section {
+        padding: 15px 30px;
+    }
+    
+    /* 💥 MODIFICACIÓN: Header cambia a columna y menú envuelve */
+    .header {
+        flex-direction: column; 
+    }
+    
+    .navbar {
+        flex-wrap: wrap; /* Permitimos que los botones salten de línea */
+        justify-content: center; 
+        width: 100%; 
+        margin-top: 10px; 
+    }
+    
+    .navbar a {
+        margin: 5px; /* Reducimos margen */
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .hero-image-container {
+        text-align: center;
+    }
+
+    .profile-image-hero {
+        max-width: 280px;
+    }
+
+    .about-grid, .certification-grid {
+        grid-template-columns: 1fr; /* Apilamos las columnas */
+    }
+    
+    .hero-content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .role-pretitle, .hero-summary {
+        text-align: center;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-actions a {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+/* MÓVILES (<= 768px) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5em; /* Reducción de tamaño de fuente principal */
+    }
+    
+    .section-title {
+        font-size: 2em; /* Reducción de tamaño de títulos de sección */
+    }
+    
+    /* Ajuste para el notebook en tablet/móvil grande */
+    .week-link-button {
+        flex-basis: calc(50% - 15px); /* 2 por fila */
+    }
+    
+    /* 💥 MODIFICACIÓN: Apilamos el menú en una sola columna verticalmente si es necesario */
+    .navbar {
+        flex-direction: column; 
+    }
+    .navbar a {
+        width: 90%; 
+        margin: 5px auto; 
+    }
+}
+
+/* MÓVILES PEQUEÑOS (<= 600px) */
+@media (max-width: 600px) {
+    /* 💥 MODIFICACIÓN: Reducimos padding general en todas las secciones */
+    .header, .hero-section, .about-section, .projects-section, .education-section, .notebook-section, .section-padding {
+        padding: 30px 15px; 
+    }
+
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+    
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    
+    /* Ajuste final del notebook a 1 por fila */
+    .week-link-button {
+        flex-basis: 100%; 
+    }
+    
+    .logo {
+        font-size: 1em;
+        text-align: center;
+    }
+}
